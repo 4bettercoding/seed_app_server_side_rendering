@@ -5,15 +5,13 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router";
 import bodyParser from "body-parser";
 
-const app = express();
-const path = require("path");
-const dist_dir = path.join(__dirname, "build/public");
-const PORT = process.env.PORT || 3000;
-
 import App from "./src/app";
 
+const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
-app.use(express.static(dist_dir));
+app.use(express.static("build/public"));
 
 app.get("*", (req, res) => {
   const context = {};
@@ -32,7 +30,7 @@ app.get("*", (req, res) => {
         <div id="root">
           ${content}
         </div>
-        <!--<script src="client_bundle.js"></script>-->
+        <script src="client_bundle.js"></script>
       </body>
     </html>
   `;

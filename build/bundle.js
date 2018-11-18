@@ -60,39 +60,36 @@
   },
   function(e, t, n) {
     "use strict";
-    (function(e) {
-      n(3);
-      var t = c(n(4)),
-        r = c(n(0)),
-        o = c(n(5)),
-        u = n(1),
-        i = c(n(6)),
-        l = c(n(7));
-      function c(e) {
-        return e && e.__esModule ? e : { default: e };
-      }
-      var a = (0, t.default)(),
-        f = n(9).join(e, "build/public"),
-        p = process.env.PORT || 3e3;
-      a.use(i.default.json()),
-        a.use(t.default.static(f)),
-        a.get("*", function(e, t) {
-          var n =
-            '\n    <html>\n      <head>\n      </head>\n      <body>\n        <div id="root">\n          ' +
-            o.default.renderToString(
-              r.default.createElement(
-                u.StaticRouter,
-                { location: e.url, context: {} },
-                r.default.createElement(l.default, null)
-              )
-            ) +
-            '\n        </div>\n        \x3c!--<script src="client_bundle.js"></script>--\x3e\n      </body>\n    </html>\n  ';
-          t.send(n);
-        }),
-        a.listen(p, function() {
-          console.log("App running,", p);
-        });
-    }.call(this, "/"));
+    n(3);
+    var r = a(n(4)),
+      o = a(n(0)),
+      u = a(n(5)),
+      i = n(1),
+      l = a(n(6)),
+      c = a(n(7));
+    function a(e) {
+      return e && e.__esModule ? e : { default: e };
+    }
+    var f = (0, r.default)(),
+      p = process.env.PORT || 3e3;
+    f.use(l.default.json()),
+      f.use(r.default.static("build/public")),
+      f.get("*", function(e, t) {
+        var n =
+          '\n    <html>\n      <head>\n      </head>\n      <body>\n        <div id="root">\n          ' +
+          u.default.renderToString(
+            o.default.createElement(
+              i.StaticRouter,
+              { location: e.url, context: {} },
+              o.default.createElement(c.default, null)
+            )
+          ) +
+          '\n        </div>\n        <script src="client_bundle.js"></script>\n      </body>\n    </html>\n  ';
+        t.send(n);
+      }),
+      f.listen(p, function() {
+        console.log("App running,", p);
+      });
   },
   function(e, t) {
     e.exports = require("babel-polyfill");
@@ -286,8 +283,5 @@
       );
     })();
     t.default = u;
-  },
-  function(e, t) {
-    e.exports = require("path");
   }
 ]);
