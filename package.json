@@ -7,9 +7,10 @@
   "license": "MIT",
   "scripts": {
     "node:server:only": "node server_no_webpack",
+    "webpack:client": "webpack --config webpack.client.js --watch",
     "webpack:server": "webpack --config webpack.server.js --watch",
     "webpack:start": "nodemon --watch build --exec node build/bundle.js",
-    "dev": "$(npm bin)/npm-run-all --parallel webpack:*"
+    "dev": "npm-run-all --parallel webpack:*"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

@@ -62,40 +62,34 @@
     "use strict";
     (function(e) {
       n(3);
-      var t = a(n(4)),
-        r = a(n(0)),
-        o = a(n(5)),
+      var t = c(n(4)),
+        r = c(n(0)),
+        o = c(n(5)),
         u = n(1),
-        l = a(n(6)),
-        i = a(n(7));
-      function a(e) {
+        i = c(n(6)),
+        l = c(n(7));
+      function c(e) {
         return e && e.__esModule ? e : { default: e };
       }
-      var c = (0, t.default)(),
-        f = n(9).join(e, "build"),
+      var a = (0, t.default)(),
+        f = n(9).join(e, "build/public"),
         p = process.env.PORT || 3e3;
-      c.use(l.default.json()),
-        c.use(t.default.static(f)),
-        c.get("*", function(e, t) {
-          var n = {},
-            l = (o.default.renderToString(
+      a.use(i.default.json()),
+        a.use(t.default.static(f)),
+        a.get("*", function(e, t) {
+          var n =
+            '\n    <html>\n      <head>\n      </head>\n      <body>\n        <div id="root">\n          ' +
+            o.default.renderToString(
               r.default.createElement(
                 u.StaticRouter,
-                { location: e.url, context: n },
-                r.default.createElement(i.default, null)
+                { location: e.url, context: {} },
+                r.default.createElement(l.default, null)
               )
-            ),
-            '<html><head></head><body><div></div id="root">' +
-              o.default.renderToString(
-                r.default.createElement(
-                  u.StaticRouter,
-                  { location: e.url, context: n },
-                  r.default.createElement(i.default, null)
-                )
-              ));
-          t.send(l);
+            ) +
+            '\n        </div>\n        \x3c!--<script src="client_bundle.js"></script>--\x3e\n      </body>\n    </html>\n  ';
+          t.send(n);
         }),
-        c.listen(p, function() {
+        a.listen(p, function() {
           console.log("App running,", p);
         });
     }.call(this, "/"));
@@ -129,13 +123,13 @@
           return n && e(t.prototype, n), r && e(t, r), t;
         };
       })(),
-      o = i(n(0)),
+      o = l(n(0)),
       u = n(1),
-      l = i(n(8));
-    function i(e) {
+      i = l(n(8));
+    function l(e) {
       return e && e.__esModule ? e : { default: e };
     }
-    var a = (function(e) {
+    var c = (function(e) {
       function t() {
         return (
           (function(e, t) {
@@ -186,7 +180,7 @@
                 o.default.createElement(u.Route, {
                   path: "/",
                   render: function(e) {
-                    return o.default.createElement(l.default, e);
+                    return o.default.createElement(i.default, e);
                   }
                 })
               );
@@ -196,7 +190,7 @@
         t
       );
     })();
-    t.default = a;
+    t.default = c;
   },
   function(e, t, n) {
     "use strict";
@@ -275,11 +269,15 @@
                 null,
                 o.default.createElement("h1", null, "My home page"),
                 o.default.createElement("p", null, "Some content"),
-                o.default.createElement("button", {
-                  onClick: function() {
-                    return e.exampleMethod();
-                  }
-                })
+                o.default.createElement(
+                  "button",
+                  {
+                    onClick: function() {
+                      return e.exampleMethod();
+                    }
+                  },
+                  "click to hydrate the browser"
+                )
               );
             }
           }

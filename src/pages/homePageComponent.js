@@ -10,7 +10,9 @@ class Home extends React.Component {
       <div>
         <h1>My home page</h1>
         <p>Some content</p>
-        <button onClick={() => this.exampleMethod()} />
+        <button onClick={() => this.exampleMethod()}>
+          click to hydrate the browser
+        </button>
       </div>
     );
   }
